@@ -1,13 +1,13 @@
-import React, {use, useState} from 'react';
-import './components/App.css';
+import React, {useState} from 'react';
+import './App.css';
 import SearchForm from './components/SearchForm';
 import BookCard from './components/BookCard';
-import Favorites from '/componnents/Favorites';
+import Favorites from './components/Favorites';
 // app is the component
 const App = () => {
     // books is the arrray which is initially empty and setBooks is the function to update the array.
     const [books, setBooks] = useState([]);
-    const [Favorites, setFavorites] = useState([]);
+    const [favorites, setFavorites] = useState([]);
 
 
     const handleSearch = (results) => {
@@ -31,7 +31,7 @@ const App = () => {
                     />
                 ))}
             </div>
-            <Favorites Favorites = {Favorites}/>
+            <Favorites Favorites = {favorites}/>
         </div>
     );
 };

@@ -36,4 +36,4 @@ const SearchForm = ({ onSearch }) => {
             </form>
         );
 };
-export default searchForm;
+export default SearchForm;

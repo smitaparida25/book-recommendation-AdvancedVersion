@@ -1,0 +1,36 @@
+.app {
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.book-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin: 20px;
+}
+
+.book-card {
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: 200px;
+    text-align: left;
+    border-radius: 8px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.book-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.favorites {
+    margin-top: 20px;
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}

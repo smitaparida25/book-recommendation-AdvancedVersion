@@ -4,7 +4,7 @@ const Favorites = ({favorites}) => {
     return(
         <div className="favorites">
             <h2>Favorites</h2>
-            {favorites.length == 0?(
+            {favorites.length === 0?(
                 <p>No favorite books added yet.</p>
             ) : (
                 favorites.map((book) => (
