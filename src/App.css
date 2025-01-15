@@ -9,6 +9,7 @@
     justify-content: center;
     gap: 16px;
     margin: 20px;
+
 }
 
 .book-card {
@@ -34,3 +35,202 @@
     background-color: #f9f9f9;
     border-radius: 8px;
 }
+.signup-form, .wrapper {
+    margin: 20px auto;
+    padding: 25px 30px;
+    max-width: 400px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Form Header */
+.signup-form h2, .wrapper h1 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #444;
+    font-weight: 700;
+}
+
+/* Form Elements */
+.signup-form form, .wrapper form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.signup-form label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #555;
+    text-align: left;
+}
+
+.signup-form input, .input-box input {
+    width: 100%;
+    padding: 12px;
+    font-size: 0.95rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s;
+    background-color: #f9f9f9;
+}
+
+.signup-form input:focus, .input-box input:focus {
+    border-color: #6a11cb;
+    box-shadow: 0 0 5px rgba(106, 17, 203, 0.4);
+    background-color: #fff;
+}
+
+/* Input with Icon */
+.input-box {
+    position: relative;
+    margin-bottom: 20px;
+    margin-right: 25px;
+}
+
+.input-box .icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #6a11cb;
+}
+
+/* Buttons */
+.signup-form button, .wrapper button {
+    padding: 12px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(106, 17, 203, 0.2);
+    margin-bottom: 28px;
+}
+
+.signup-form button:hover, .wrapper button:hover {
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+    box-shadow: 0 6px 15px rgba(106, 17, 203, 0.3);
+}
+
+/* Toggle Link */
+.toggle-link, .remember-forgot a {
+    font-size: 0.9rem;
+    color: #6a11cb;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.toggle-link:hover, .remember-forgot a:hover {
+    text-decoration: underline;
+    color: #2575fc;
+}
+
+/* Remember and Forgot Section */
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: -10px 0 15px;
+    font-size: 0.9rem;
+}
+
+.remember-forgot label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    color: #555;
+}
+
+.remember-forgot input {
+    accent-color: #6a11cb;
+}
+
+/* Error Message */
+.signup-form p {
+    font-size: 0.85rem;
+    color: #ff6b6b;
+    margin-top: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .signup-form, .wrapper {
+        padding: 20px;
+        margin: 10px auto;
+    }
+
+    .signup-form h2, .wrapper h1 {
+        font-size: 1.6rem;
+    }
+
+    .signup-form button, .wrapper button {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+}
+.auth-button {
+    position: relative;
+    width: 120px;
+    height: 40px;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+    justify-content: center;
+    border: none;
+    padding: 12px;
+    gap: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 42px;
+    margin-left: 74pc;
+  }
+  
+  .auth-button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    left: -4px;
+    top: -1px;
+    margin: auto;
+    width: 128px;
+    height: 48px;
+    border-radius: 10px;
+    background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100% );
+    z-index: -10;
+    pointer-events: none;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .auth-button::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100% );
+    transform: translate3d(0, 0, 0) scale(0.95);
+    filter: blur(20px);
+  }
+  
+  .auth-button:hover::after {
+    filter: blur(30px);
+  }
+  
+  .auth-button:hover::before {
+    transform: rotate(-180deg);
+  }
+  
+  .auth-button:active::before {
+    scale: 0.7;
+  }
+  

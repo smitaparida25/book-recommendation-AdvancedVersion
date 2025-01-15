@@ -1,6 +1,9 @@
 import React from "react";
 
 const Favorites = ({favorites}) => {
+    if (!favorites) {
+        favorites = [];
+    }
     return(
         <div className="favorites">
             <h2>Favorites</h2>

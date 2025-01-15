@@ -3,6 +3,9 @@ import './App.css';
 import SearchForm from './components/SearchForm';
 import BookCard from './components/BookCard';
 import Favorites from './components/Favorites';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import SignupOrLogin from './components/SignupOrLogin';
+
 // app is the component
 const App = () => {
     // books is the arrray which is initially empty and setBooks is the function to update the array.
@@ -19,9 +22,18 @@ const App = () => {
     };
 
     return(
+        <Router>
         <div className="app">
-            <h1>Book Recommendation app</h1>
-            <SearchForm onSearch={handleSearch}/>
+            <Link to="/auth">
+            <button className="auth-button">SignUp or Login</button>
+            </Link>
+            <Routes>
+            <Route
+                path = "/"
+                element = {
+                    <>
+                    <h1>Book Recommendation app</h1>
+                    <SearchForm onSearch={handleSearch}/>
             <div className="book-list">
                 {books.map((book) =>(
                     <BookCard
@@ -31,8 +43,14 @@ const App = () => {
                     />
                 ))}
             </div>
-            <Favorites Favorites = {favorites}/>
+            <Favorites favorites = {favorites}/>
+                    </>
+                }
+                />
+            <Route path = "/auth"element={<SignupOrLogin/>}/>
+            </Routes>
         </div>
+        </Router>
     );
 };
 
