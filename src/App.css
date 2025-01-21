@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&display=swap');
 .app {
     text-align: center;
-    font-family: Arial, sans-serif;
+    font-family: "Agbalumo", serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .book-list {
@@ -130,7 +133,7 @@
 
 .toggle-link:hover, .remember-forgot a:hover {
     text-decoration: underline;
-    color: #2575fc;
+    color: #000000;
 }
 
 /* Remember and Forgot Section */
@@ -233,4 +236,84 @@
   .auth-button:active::before {
     scale: 0.7;
   }
+  .search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Ensure it takes up the full width */
+  }
   
+  .search-container form {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-input {
+    width: 22pc;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex-grow: 1;
+    margin-left: 22px;
+    z-index: 10;
+  }
+  
+  .search-button {
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    border-radius: 9px;
+    padding: 3px;
+    cursor: pointer;
+    display: flex
+;
+    margin-left: 3px;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-button:hover {
+    background-color: #e0e0e0; /* Slightly darker background on hover */
+  }
+  .book-icon {
+    width: 25px;
+    height: 25px;
+  }
+  .cloud-image {
+    position: absolute;
+    top: 178px;
+    left: 457px;
+    width: 65px;
+    height: 53px;
+    z-index: 11;
+  }  
+
+  .cat-popup {
+    position: absolute;
+    top: -82px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: moveUp 3s cubic-bezier(0.2, 0, 0.2, 1);;
+    z-index: 1;
+  }
+  
+  .cat-image {
+    width: 92px;
+    height: 92px;
+    border: none;
+    background-color: transparent;
+    margin-top: 226px;
+    margin-right: 20pc;
+  }
+  
+  @keyframes moveUp {
+    0% {
+        top: -82px;
+      }
+      50% {
+        top: -115px;
+      }
+      100%{
+        top: -82px;
+      }
+  }

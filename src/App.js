@@ -32,7 +32,7 @@ const App = () => {
                 path = "/"
                 element = {
                     <>
-                    <h1>Book Recommendation app</h1>
+                    <h1>Book Recommendation</h1>
                     <SearchForm onSearch={handleSearch}/>
             <div className="book-list">
                 {books.map((book) =>(
