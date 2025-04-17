@@ -11,7 +11,7 @@ const SignupOrLogin = () => {
 
     const handleSubmit = async(e) =>{
         e.preventDefault();
-
+        
         const formData = new FormData(e.target);
         const data = {
             username: formData.get("username"),
@@ -43,7 +43,7 @@ const SignupOrLogin = () => {
                     <div className="input-box">
                     <input type= "text" placeholder="Username or Phone Number or Email" required />
                     <FaRegUserCircle className="icon" />
-                </div>
+                    </div>
                 <div className="input-box">
                     <input type="password" placeholder="Password" required/>
                     <TbLockPassword className="icon" />
@@ -55,18 +55,18 @@ const SignupOrLogin = () => {
                 <button type="submit">Login</button>
                 </form>
             ) : (
-                <form action="">
+                <form onSubmit={handleSubmit}>
                 <h1>Create an Account</h1>
                 <div className="input-box">
-                    <input type= "text" placeholder="Username" required />
+                    <input type= "text" name="username" placeholder="Username" required />
                     <FaRegUserCircle className="icon"/>
                 </div>
                 <div className="input-box">
-                    <input type="text" placeholder="Email" required />
+                    <input type="text" name="email" placeholder="Email" required />
                     <MdEmail className="icon"/>
                 </div>
                 <div className="input-box">
-                    <input type="password" placeholder="Password" required/>
+                    <input type="password" name="password" placeholder="Password" required/>
                     <TbLockPassword className="icon"/>
                 </div>
                 <button type="submit">Signup</button>
