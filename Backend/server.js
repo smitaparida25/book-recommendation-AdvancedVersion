@@ -2,6 +2,10 @@ const express = require('express');
 const app = express();
 const PORT = 5000;
 const mysql = require('mysql2');
+const {Client} = require('@elastic/elasticsearch');
+
+const esClient = new Client({ node: 'http://localhost:9200',tls: { rejectUnauthorized: false }});
+
 
 app.use(express.json());
 const cors = require("cors");
@@ -51,4 +55,35 @@ app.post('/signup', (req,res) =>{
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
+});
+
+app.get('/suggest', async (req, res) => {
+    const query = req.query.q || '';
+    console.log("Received query:", query);
+
+    try {
+        const response = await esClient.search({
+            index: 'books',
+            body: {
+                suggest: {
+                    book_suggest: {
+                        prefix: query,
+                        completion: {
+                            field: 'suggest',
+                            size: 5,
+                            fuzzy: {
+                                fuzziness: "auto"
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        console.log("Elasticsearch response:", response);
+        const suggestions = [...new Set(response.suggest?.book_suggest?.[0]?.options?.map(opt => opt.text) || [])];
+        res.json(suggestions);
+    } catch (err) {
+        console.error('💥 Elasticsearch error:', err);
+        res.status(500).json({ error: 'Suggestion failed' });
+    }
 });
