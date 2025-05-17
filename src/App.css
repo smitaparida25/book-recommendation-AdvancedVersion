@@ -4,6 +4,7 @@
     font-family: "Agbalumo", serif;
     font-weight: 400;
     font-style: normal;
+    margin-top: 5pc;
 }
 
 .book-list {
@@ -195,7 +196,7 @@
     gap: 12px;
     border-radius: 8px;
     cursor: pointer;
-    margin-top: 42px;
+    margin-top: -21pc;
     margin-left: 74pc;
   }
   
@@ -236,13 +237,7 @@
   .auth-button:active::before {
     scale: 0.7;
   }
-  .search-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%; /* Ensure it takes up the full width */
-  }
-  
+
   .search-container form {
     display: flex;
     align-items: center;
@@ -258,6 +253,10 @@
     z-index: 10;
   }
   
+  .auth-button a {
+  text-decoration: none; /* target links inside */
+  color: inherit; /* keep the button text white */
+}
   .search-button {
     background-color: #f4f4f4;
     border: 1px solid #ccc;
@@ -281,8 +280,8 @@
   }
   .cloud-image {
     position: absolute;
-    top: 178px;
-    left: 457px;
+    top: 4px;
+    left: 489px;
     width: 65px;
     height: 53px;
     z-index: 11;
@@ -302,8 +301,8 @@
     height: 92px;
     border: none;
     background-color: transparent;
-    margin-top: 226px;
-    margin-right: 20pc;
+    margin-top: 52px;
+    margin-right: 16pc;
   }
   
   @keyframes moveUp {
@@ -316,41 +315,56 @@
       100%{
         top: -82px;
       }
-  }
+  }/* Search container positioning */
+.search-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Input container to hold search input and button */
 .search-input-container {
   position: relative;
   display: flex;
   width: 100%;
+  max-width: 360px;
 }
 
+/* Suggestions list styling to match your site's aesthetic */
 .suggestions-list {
   position: absolute;
-  top: 100%;
+  top: calc(100% + 2px);
   left: 0;
   width: 100%;
+  max-width: 360px;
   max-height: 200px;
   overflow-y: auto;
-  background-color: white;
-  border: 1px solid #ddd;
-  border-top: none;
-  border-radius: 0 0 4px 4px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  z-index: 10;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 100;
   padding: 0;
   margin: 0;
   list-style: none;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .suggestion-item {
   padding: 10px 15px;
   cursor: pointer;
-  border-bottom: 1px solid #f0f0f0;
-}
-
-.suggestion-item:last-child {
-  border-bottom: none;
+  transition: all 0.2s ease;
+  color: #333;
+  text-align: left;
+  font-size: 14px;
 }
 
 .suggestion-item:hover {
-  background-color: #f5f5f5;
+  background-color: #fff0f5;
+}
+
+.suggestion-item:not(:last-child) {
+  border-bottom: 1px solid #f0f0f0;
 }

@@ -3,9 +3,12 @@ import { useState } from "react";
 import { FaRegUserCircle } from "react-icons/fa";
 import { TbLockPassword } from "react-icons/tb";
 import { MdEmail } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const SignupOrLogin = () => {
+    const navigate = useNavigate();
+
     const [isLogin, setIsLogin] = useState(false);
     const toggleForm = () => setIsLogin(prev => !prev);
 
@@ -19,12 +22,16 @@ const SignupOrLogin = () => {
             password: formData.get("password")
         };
 
-        const url = isLogin? "http://localhost:5000/login" : "http://localhost:5000/signup";
+        const url = isLogin ? "http://localhost:5000/api/auth/login" : "http://localhost:5000/api/auth/signup";
 
         try{
             const response = await axios.post(url,data);
-            if(response.data.success){
+            console.log("Full response:", response.data);
+            console.log(response.status);
+
+            if(response.status === 201 && response.data.success === true){
                 console.log("success:", response.data.message);
+                navigate("/dashboard");
             }
             else{
                 console.error("error:", response.data.message);

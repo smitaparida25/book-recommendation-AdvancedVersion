@@ -5,7 +5,7 @@ import BookCard from './components/BookCard';
 import Favorites from './components/Favorites';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import SignupOrLogin from './components/SignupOrLogin';
-
+import Dashboard from './components/Dashboard';
 
 // app is the component
 const App = () => {
@@ -25,15 +25,12 @@ const App = () => {
     return(
         <Router>
         <div className="app">
-            <Link to="/auth">
-            <button className="auth-button">SignUp or Login</button>
-            </Link>
             <Routes>
             <Route
                 path = "/"
                 element = {
                     <>
-                    <h1>Book Recommendation</h1>
+                    <h1 style={{position: 'relative', top: '-8px', fontSize: '38px',}}>Book Recommendation</h1>
                     <SearchForm onSearch={handleSearch}/>
             <div className="book-list">
                 {books.map((book) =>(
@@ -45,10 +42,15 @@ const App = () => {
                 ))}
             </div>
             <Favorites favorites = {favorites}/>
+            <Link to="/auth">
+            <button className="auth-button">SignUp or Login</button>
+            </Link>
                     </>
                 }
                 />
-            <Route path = "/auth"element={<SignupOrLogin/>}/>
+            <Route path="/auth" element={<SignupOrLogin isLogin={false} />} />
+            <Route path="/auth" element={<SignupOrLogin isLogin={true} />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             </Routes>
         </div>
         </Router>
