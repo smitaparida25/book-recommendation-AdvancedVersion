@@ -4,7 +4,6 @@
     font-family: "Agbalumo", serif;
     font-weight: 400;
     font-style: normal;
-    margin-top: 5pc;
 }
 
 .book-list {
@@ -367,4 +366,31 @@
 
 .suggestion-item:not(:last-child) {
   border-bottom: 1px solid #f0f0f0;
+}
+
+
+.sidebar {
+  width: 250px;
+  height: 100vh; /* full viewport height */
+  background-color: #222;
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-list li {
+  margin: 15px 0;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.nav-list li:hover {
+  color: #c0c0c0; /* subtle highlight on hover */
 }

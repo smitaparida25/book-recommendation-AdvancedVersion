@@ -38,7 +38,7 @@ const SignupOrLogin = () => {
             }
         }
             catch(error){
-                console.error("error", error);
+                console.error("error", error.response);
             }
         };
 
@@ -48,11 +48,11 @@ const SignupOrLogin = () => {
                 <form onSubmit={handleSubmit}>
                     <h1>Login</h1>
                     <div className="input-box">
-                    <input type= "text" placeholder="Username or Phone Number or Email" required />
+                    <input type= "text" name="username" placeholder="Username or Phone Number or Email" required />
                     <FaRegUserCircle className="icon" />
                     </div>
                 <div className="input-box">
-                    <input type="password" placeholder="Password" required/>
+                    <input type="password" name="password" placeholder="Password" required/>
                     <TbLockPassword className="icon" />
                 </div>
                 <div className="remember-forgot">

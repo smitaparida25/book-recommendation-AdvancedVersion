@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 const db = require('../server');
 
-const loginUser = (req, res) => {
+const login = (req, res) => {
   const { username, password } = req.body;
 
   const query = 'SELECT * FROM users WHERE name = ?';
@@ -10,7 +10,8 @@ const loginUser = (req, res) => {
       console.error('DB error:', err);
       return res.status(500).json({ message: 'Server error' });
     }
-
+    console.log("Username from client:", req.body.username);
+    
     if (results.length === 0) {
       return res.status(401).json({ message: 'Invalid username or password' });
     }
@@ -19,11 +20,12 @@ const loginUser = (req, res) => {
 
     const match = await bcrypt.compare(password, user.password);
     if (!match) {
-      return res.status(401).json({ message: 'Invalid username or password' });
+      console.warn(`Password mismatch for user "${username}"`);
+      return res.status(401).json({ message: 'Invalid password' });
     }
     
-    res.status(200).json({ message: 'Login successful', user: { id: user.id, username: user.name } });
+    res.status(201).json({ success : true ,message: 'Login successful'});
   });
 };
 
-module.exports = { login: loginUser };
+module.exports = { login };
